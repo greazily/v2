@@ -1,13 +1,13 @@
 gsap.registerPlugin(Draggable);
-const d = 30,
-    c = document.querySelector("#circleAnim"),
+const c = document.querySelector("#circleAnim"),
     r = document.querySelector("#dragAnim"),
     yrs = document.querySelectorAll(".year"),
     yrTxtOffset = 7,
     dialOffset = 90,
-    dVideo = document.querySelector("#video"),
     videos = document.querySelectorAll(".video-background"),
+    dVideo = videos[0].duration,
     dv = videos.length,
+    d = dVideo * dv,
     prjs = [1,2];
 let progressAtClick;
 
@@ -40,7 +40,7 @@ function init(){
         },
         {
             duration: d/dv,
-            currentTime: dVideo.duration || 1,
+            currentTime: dVideo || 1,
             stagger: d/dv
         },
     )
