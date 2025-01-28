@@ -2,18 +2,27 @@ gsap.registerPlugin(Draggable);
 const d = 30,
     c = document.querySelector("#circleAnim"),
     r = document.querySelector("#dragAnim"),
-    dv = 4,
     yrs = document.querySelectorAll(".year"),
-    compYrRotation = 8,
-    video1 = document.querySelector('#video1'),
-    video2 = document.querySelector('#video2'),
+    yrTxtOffset = 7,
+    dialOffset = 90,
+    dVideo = document.querySelector("#video"),
+    videos = document.querySelectorAll(".video-background"),
+    dv = videos.length,
     prjs = [1,2];
 let progressAtClick;
 
+console.log(dv, d/dv)
+
 function placeYear(){
-    for (let i = 0; i < yrs.length; i++) {
-        let newR = 360/dv * (i+1) - compYrRotation;
-        yrs[i].style.transform = "rotate(" + newR + "deg)"
+    for (let i = 0; i < videos.length; i++) {
+        let yearElement = document.createElement("div");
+        let newR = -360/dv * (i) - dialOffset - yrTxtOffset;
+        yearElement.textContent = videos[i].dataset.year
+        yearElement.setAttribute("class", "year")
+        c.appendChild(yearElement)
+        yearElement.style.transform = "rotate(" + newR + "deg)"
+        console.log(videos[i].dataset.year)
+        console.log(newR)
       }
 }
 
@@ -25,25 +34,17 @@ function init(){
             comProgress = progressAtDeg + progressAtClick;
         return comProgress
     }
-
-
-    //clean up and fix duplicate maybe gsap.util?? array of animations
-    let tweenVideo1 = gsap.fromTo(video1, 
+    let tweenVideo = gsap.fromTo(".video-background", 
         {
             currentTime: 0,
         },
         {
-            currentTime: video1.duration || 1
-        },
-    ),
-    tweenVideo2 = gsap.fromTo(video2, 
-        {
-            currentTime: 0,
-        },
-        {
-            currentTime: video2.duration || 1
+            duration: d/dv,
+            currentTime: dVideo.duration || 1,
+            stagger: d/dv
         },
     )
+
     let tween = gsap.to(c, {
         duration: d,
         rotation: "360_cw",
@@ -51,27 +52,20 @@ function init(){
         ease: "none",
         onUpdate: function(){
             setBackgroundColor(this.progress())
-            
-            // dv number of divisions
         }
     })
 
-    tweenVideo1.pause()
-    tweenVideo2.pause()
-
     function setBackgroundColor(progress){
-        // console.log(progress)
-        if(progress > 0 && progress < 1/dv){
-            tweenVideo1.progress((progress * dv) % 1)
-            document.body.style.backgroundColor = "red";
-        } else if (progress > 1/dv && progress < 2/dv){
-            tweenVideo2.progress((progress * dv) % 1)
-            document.body.style.backgroundColor = "blue";
-        } else if (progress > 2/dv && progress < 3/dv){
-            document.body.style.backgroundColor = "green";
-        } else {
-            document.body.style.backgroundColor = "yellow";
-        }
+        tweenVideo.progress(progress)
+
+        for (let i = 0; i < videos.length; i++) {
+                    if(progress > i/dv && progress < (i+1)/dv){
+                        videos.forEach((video)=>{
+                            video.classList.remove("show")
+                        })
+                        videos[i].classList.add("show")
+                    }
+            }
     }
 
     Draggable.create(r, {
@@ -79,8 +73,7 @@ function init(){
         onPress: function() {
             progressAtClick = tween.progress();
             tween.pause()
-            tweenVideo1.pause()
-            tweenVideo2.pause()
+            tweenVideo.pause()
 
         },
         onDrag: function() {

@@ -14,7 +14,8 @@ body {
 
 .circle {
     position: relative;
-    background: conic-gradient(red, yellow, green);
+    /* background: conic-gradient(olive, yellow, gold, olive); */
+    background-color: yellow;
     width: 300px;
     height: 300px;
     border-radius: 50%;
@@ -34,7 +35,7 @@ body {
     right: 0;
     width: 50px;
     height: 2px;
-    background-color: purple;
+    background-color: red;
 }
 
 .year{
@@ -46,6 +47,12 @@ body {
     height: 100%;
 }
 
-video{
-    width: 30%;
+.video-background{
+    width: 100%;
+    position: absolute;
+    display: none;
+}
+
+.show{
+    display: block;
 }
