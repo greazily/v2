@@ -1,34 +1,84 @@
 :root {
     --color: white;
+    --dialFont: clamp( 10px, 0.93vw ,14px);
     font-family: Helvetica, Arial,  sans-serif;
 }
 
 body {
-    background-color: black;
+    margin: 0;
+    width: 100vw;
+    height: 100dvh;
 }
 
+p, h1, h2 {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--color);
+    transition: color 300ms;
+}
+
+
+
 .container {
-    position: relative;
-    width: fit-content;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.dial {
+    position: relative;
+    width: clamp(150px, 15vw, 230px);
+    height: clamp(150px, 15vw, 230px);
+    font-size: var(--dialFont);
+}
+
+.dial-positioner {
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    height: 100%;
+    width: 100%;
 }
 
 .video-container {
     position: absolute;
+    display: flex;
+    justify-content: center;
     top: 0;
+    left: 0;
     z-index: -1;
     width: 100%;
     height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .circle {
     position: relative;
-    /* background: conic-gradient(olive, yellow, gold, olive); */
     background-color: var(--color);
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
+    transition: background-color 300ms;
 }
+
+/* .circle::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(from 92deg, rgba(0,0,0,0), rgba(0,0,0,0.3), rgba(0,0,0,0));
+} */
 
 .proxy{
     top: 0;
@@ -42,7 +92,7 @@ body {
     position: absolute;
     top: 50%;
     right: 0;
-    width: 50px;
+    width: 2em;
     height: 2px;
     background-color: red;
 }
@@ -54,25 +104,45 @@ body {
     align-items: end;
     width: 100%;
     height: 100%;
+    font-size: inherit;
     padding-bottom: 0.5em;
     box-sizing: border-box;
 }
 
 .video-background{
-    width: 100%;
     position: absolute;
-    display: none;
+    height: 100%;
+    visibility: hidden;
     filter: brightness(0.9); /* might want to remove */
 }
 
 .show{
-    display: block;
+    visibility: visible;
 }
 
 .title {
-    color: var(--color);
-    padding: 0;
-    margin: 0;
-    font-weight: 400;
-    text-transform: uppercase;
+    grid-area: title;
+}
+
+.info{
+    grid-area: info;
+}
+
+.logo{
+    background-color: var(--color);
+    height: 100%;
+    width: 100px;
+    grid-area: logo;
+}
+
+.site-header{
+    display: grid;
+    max-width: 500px;
+    grid-template-columns: auto 1fr;
+    gap: 0.5em;
+    grid-template-areas: 
+        "logo title"
+        "logo info"
+    ;
+    
 }

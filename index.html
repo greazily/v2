@@ -8,19 +8,29 @@
 </head>
 <body>
     <div class="video-container">
-        <video data-number="P001" id="video" src="https://assets.codepen.io/39255/output_960.mp4" playsinline="true" webkit-playsinline="true" preload="auto" muted="muted" class="video-background"></video>
-        <video data-number="P002" src="https://assets.codepen.io/39255/output_960.mp4" playsinline="true" webkit-playsinline="true" preload="auto" muted="muted" class="video-background"></video>
-        <video data-number="P003" src="https://assets.codepen.io/39255/output_960.mp4" playsinline="true" webkit-playsinline="true" preload="auto" muted="muted" class="video-background"></video>
-        <video data-number="P004" src="https://assets.codepen.io/39255/output_960.mp4" playsinline="true" webkit-playsinline="true" preload="auto" muted="muted" class="video-background"></video>
-        <video data-number="P005" src="https://assets.codepen.io/39255/output_960.mp4" playsinline="true" webkit-playsinline="true" preload="auto" muted="muted" class="video-background"></video>
-        <video data-number="P006" src="https://assets.codepen.io/39255/output_960.mp4" playsinline="true" webkit-playsinline="true" preload="auto" muted="muted" class="video-background"></video>
+        <video data-number="P001" src="https://assets.codepen.io/39255/output_960.mp4" playsinline="true" webkit-playsinline="true" autoplay preload="auto" muted="muted" class="video-background" ></video>
+        <video data-number="P002" src="https://assets.codepen.io/39255/output_960.mp4" playsinline="true" webkit-playsinline="true" autoplay preload="auto" muted="muted" class="video-background"></video>
+        <video data-number="P003" src="https://assets.codepen.io/39255/output_960.mp4" playsinline="true" webkit-playsinline="true" autoplay preload="auto" muted="muted" class="video-background"></video>
+        <video data-number="P004" src="https://assets.codepen.io/39255/output_960.mp4" playsinline="true" webkit-playsinline="true" autoplay preload="auto" muted="muted" class="video-background"></video>
+        <video data-number="P005" src="https://assets.codepen.io/39255/output_960.mp4" playsinline="true" webkit-playsinline="true" autoplay preload="auto" muted="muted" class="video-background"></video>
+        <video data-number="P006" src="https://assets.codepen.io/39255/output_960.mp4" playsinline="true" webkit-playsinline="true" autoplay preload="auto" muted="muted" class="video-background"></video>
     </div>
-    <h1 class="title">Mikael Dahlén</h1>
+
     <div class="container">
-        <div class="circle" id="circleAnim">
+        <header class="site-header">
+            <div class="logo"></div>
+            <h1 class="title">Mikael Dahlén</h1>
+            <p class="info">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam blanditiis aperiam pariatur id doloremque nostrum recusandae impedit similique tempora ducimus voluptatum minima quidem, qui dolorum eius officia omnis corporis. Culpa.</p>
+
+        </header>
+        <div class="dial-positioner">
+            <div class="dial">
+                <div class="circle" id="circleAnim">
+                </div>
+                <div class="indicator"></div>
+                <div class="proxy" id="dragAnim"></div>
+            </div>
         </div>
-        <div class="indicator"></div>
-        <div class="proxy" id="dragAnim"></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
