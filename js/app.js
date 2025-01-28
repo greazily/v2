@@ -6,15 +6,17 @@ let loadingValue = document.querySelector(".loading-value");
 let canvas = document.querySelector("#canvas");
 let context = canvas.getContext("2d");
 let dragProxy = document.querySelector(".proxy");
+let frameRate = 24;
+let framesPerProject = 0;   // use to get number of projects for creating project
 let initialProgress = 0;
 
 
-canvas.width = 1158;
-canvas.height = 770;
+canvas.width = 1024;
+canvas.height = 1024;
 
-let frameCount = 147;
+let frameCount = 773;
 let currentFrame = index => (
-  `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${(index + 1).toString().padStart(4, '0')}.jpg`
+  `/img/seq/${(index + 1).toString().padStart(4, '0')}.webp`
 );
 
 let progression = 0.01
@@ -56,14 +58,14 @@ function onLoad() {
 let imageSequencer = gsap.to(airpods, {
   frame: frameCount - 1,
   snap: "frame",
-  duration: frameCount/30,
+  duration: frameCount/frameRate,
   ease: "none",
   onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate
 });
 imageSequencer.pause()
 
 let dialRotater = gsap.to(".dial", {
-  duration: frameCount/30,
+  duration: frameCount/frameRate,
   rotation: "360_cw",
   repeat: -1,
   ease: "none",
