@@ -1,5 +1,6 @@
 gsap.registerPlugin(Draggable);
 
+// !!!!!!!!!doesn't work on mobile or in firefox!!!!!!!!
 function initialize() {
     const root = document.querySelector(":root"),
         colors = ["white", "blue", "yellow", "green", "orange", "purple"],
@@ -8,7 +9,7 @@ function initialize() {
         yearTextOffset = 7, // needs to be in relation to size of circle, maybe not since font is resized
         dialOffset = 90,
         videoElements = document.querySelectorAll(".video-background"),
-        videoDuration = videoElements[0].duration * 0.5, // sortened !!!!!! be sure to remove !!!!!!!!
+        videoDuration = videoElements[0].duration, // sortened !!!!!! be sure to remove !!!!!!!!
         numberOfVideos = videoElements.length,  // Renamed variable here
         totalDuration = videoDuration * numberOfVideos;  // Updated variable usage
 let progressAtClick;
