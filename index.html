@@ -7,17 +7,28 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <div class="canvas-container">
-        <canvas id="canvas"></canvas>
-        <div class="dial-container">
-          <div class="dial"></div>
-          <div class="proxy"></div>
-          
+    <div class="content">
+        <div class="canvas-container">
+            <canvas id="canvas"></canvas>
+        </div>
+        <header class="site-header">
+            <div class="logo"></div>
+            <h1 class="title">Mikael Dahlén</h1>
+            <p class="info">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam blanditiis aperiam pariatur id doloremque nostrum recusandae impedit similique tempora ducimus voluptatum minima quidem, qui dolorum eius officia omnis corporis. Culpa.</p>
+        </header>
+        <div class="dial-positioner">
+            <div class="dial-container">
+                <div class="dial">
+                </div>
+                <div class="indicator"></div>
+                <div class="proxy"></div>
+            </div>
         </div>
         <div class="loading-container">
-          <div class="loading-value">0%</div>
-        </div>
-      </div>
+            <div class="loading-value">0%</div>
+          </div>
+    </div>
+
     
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Draggable.min.js"></script>
