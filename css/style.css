@@ -1,6 +1,7 @@
 :root {
     --color: blue;
     --dialFont: clamp( 10px, 0.93vw ,14px);
+    --dialSize: clamp(150px, 15vw, 210px);
     font-family: Helvetica, Arial,  sans-serif;
 }
 
@@ -35,7 +36,6 @@ p, h1, h2 {
 }
 
 #canvas {
-    width: 100%;
     /* height: 100%; */
     /* object-fit: contain; */
     visibility: hidden;
@@ -53,6 +53,7 @@ p, h1, h2 {
     background: var(--color);
     color: #000000;
     font-size: 2rem;
+    z-index: 100;
 }
 
 .dial-positioner {
@@ -65,8 +66,8 @@ p, h1, h2 {
 
 .dial-container{
     position: relative;
-    width: clamp(150px, 15vw, 230px);
-    height: clamp(150px, 15vw, 230px);
+    width: var(--dialSize);
+    height: var(--dialSize);
     font-size: var(--dialFont);
 }
 
@@ -102,13 +103,22 @@ p, h1, h2 {
 }
 
 .site-header {
-    max-width: 500px;
     position: fixed;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    max-width: 500px;
     z-index: 1;
+    height: fit-content;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    gap: 0.5rem;
+    line-height: 1em;
 }
 
 .logo{
-    
+    width: clamp(130px, 20vw, 167px);
+    grid-row: 1 / 4;
 }
 
 .proxy{
@@ -117,4 +127,21 @@ p, h1, h2 {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+@media screen and (orientation:portrait) {
+    #canvas{
+        height: 100%;
+    }
+
+    .title{
+        display: none;
+    }
+
+}
+
+@media screen and (orientation:landscape) {
+    #canvas{
+       width: 100%;
+    }
 }
