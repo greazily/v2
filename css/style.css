@@ -1,6 +1,6 @@
 :root {
-    --color: black;
-    --color2: yellow;
+    --color: white;
+    --color2: blue;
     --dialFont: clamp( 10px, 0.93vw ,14px);
     --dialFont: 0.5vw;
     --dialSize: clamp(150px, 15vw, 210px);
