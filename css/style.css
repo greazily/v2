@@ -39,7 +39,7 @@ p, h1, h2 {
 }
 
 .content{
-    padding-top: 2dvh;
+    padding-top: 3dvh;
     margin-inline: auto;
     grid-template-rows: auto 63%;
     width: fit-content;
@@ -77,12 +77,13 @@ p, h1, h2 {
     overflow: hidden;
     display: flex;
     height: 100%;
+    width: 100%;
     justify-content: center;
     align-items: center;
 }
 
 #canvas {
-    width: 100%;
+    /* width: 100%; */
     visibility: hidden;
 }
 
@@ -143,19 +144,14 @@ p, h1, h2 {
     height: 100%;
 }
 
-/* @media screen and (orientation:portrait) {
+@media screen and (orientation:portrait) {
     #canvas{
         height: 100%;
     }
-
-    .title{
-        display: none;
-    }
-
 }
 
 @media screen and (orientation:landscape) {
     #canvas{
        width: 100%;
     }
-} */
+}
