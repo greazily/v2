@@ -11,8 +11,18 @@ function onVideoLoad(){
 };
 
 function main(){
+  // const dial = 
+  let dur = vid.duration;
   
   console.log(vid.duration, vid.currentTime);
+
+  let dialRotater = gsap.to('#dial', {
+    duration: dur,
+    rotation: "360_cw",
+    repeat: -1,
+    ease: "none",
+    onUpdate: ()=> {}
+  });
   
 
 };
