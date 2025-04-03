@@ -10,23 +10,55 @@ function onVideoLoad(){
   }, false);
 };
 
-function play(){
-  vid.play()
-};
-
-function restart(){
-  vid.currentTime = 0;
-};
-
-function pause(){
-  vid.pause()
-};
-
 
 function main(){
-  let dur = vid.duration;
+  let dur = vid.duration,
+      storedRot = 0;
+
+  function playVid(){
+    vid.play()
+  };
   
-  console.log(vid.duration, vid.currentTime);
+  function restartVid(){
+    vid.currentTime = 0;
+  };
+  
+  function pauseVid(){
+    vid.pause()
+  };
+  
+  function resetProxy(){
+    gsap.set('#proxy',{rotation: 0})
+  };
+
+  function playRot(){
+    rotate.play()
+  };
+
+  function pauseRot(){
+    rotate.pause()
+  };
+
+  function dragRot(){
+    let combinedProg = (gsap.getProperty('#proxy', "rotation") + storedRot) % 360
+    combinedProg = (combinedProg < 0) ? combinedProg + 360 : combinedProg;
+    combinedProg = combinedProg / 360
+    return combinedProg;
+  };
+
+  function pressRot(){
+    let initialRot = 360 * rotate.progress();
+    return initialRot;
+  };
+
+  function storeRot(){
+    storedRot = pressRot()
+  };
+
+  function controlVidRot(){
+    rotate.progress(dragRot())
+    vid.currentTime = dur * dragRot()
+  };
 
   let rotate = gsap.to('#dial', {
     duration: dur,
@@ -34,43 +66,32 @@ function main(){
     repeat: -1,
     ease: "none",
     onStart: function(){
-      play()
+      playVid()
     },
     onRepeat: function(){
-      restart(); 
-      play()
+      restartVid(); 
+      playVid()
     }
   });
 
   Draggable.create("#proxy",{
     type: "rotation",
     onPress: function(){
-      rotate.pause()
-      pause()
-    },
-    onDrag: function(){
+      pauseRot()
+      pauseVid()
+      storeRot()
       
     },
+    onDrag: function(){
+      controlVidRot()
+    },
     onRelease: function(){
-      rotate.play()
-      play()
+      playRot()
+      playVid()
+      resetProxy()
     }
-    // ,
-    // onDrag: function(){
-    //   dialRotater.progress(getCombinedProgress(initialProgress))
-    // },
-    // onRelease: function(){
-    //   gsap.set(dragProxy,{rotation: 0})
-    //   dialRotater.play()
-    // }
-  })
 
-  
-    // onUpdate: function(){
-    //   console.log(rotate.progress())
-    //   vid.currentTime = 33 * rotate.progress()
-    // }
-  
+  });
 
 };
 
