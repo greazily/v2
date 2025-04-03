@@ -50,6 +50,10 @@ function main(){
     },
     onDrag: function(){
       
+    },
+    onRelease: function(){
+      rotate.play()
+      play()
     }
     // ,
     // onDrag: function(){
