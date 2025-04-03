@@ -52,7 +52,7 @@ p, h1, h2 {
     height: 100dvh;
     width: fit-content;
     margin-inline: auto;
-    
+
 }
 
 .info-container {
@@ -71,7 +71,7 @@ p, h1, h2 {
     grid-area: p;
 }
 
-.canvas-container {
+.video-container {
     grid-area: c;
     overflow: hidden;
     display: flex;
@@ -83,9 +83,8 @@ p, h1, h2 {
     
 }
 
-#canvas {
-    /* width: 100%; */
-    visibility: hidden;
+.video {
+    width: 100%;
 }
 
 .dial-container{
