@@ -122,6 +122,6 @@ function initializeAnimation(){
 
 function render() {
     context.clearRect(0, 0, canvas.width, canvas.height);
-    context.drawImage(images[airpods.frame], 0, 0); 
+    context.drawImage(images[airpods.frame], 0, 0);
   }
 
