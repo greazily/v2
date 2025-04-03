@@ -21,7 +21,7 @@ function main(){
     rotation: "360_cw",
     repeat: -1,
     ease: "none",
-    onUpdate: ()=> {}
+    onUpdate: ()=> {console.log(this.progress())}
   });
   
 
