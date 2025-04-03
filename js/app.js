@@ -33,9 +33,33 @@ function main(){
     rotation: "360_cw",
     repeat: -1,
     ease: "none",
-    onStart: ()=>{play()},
-    onRepeat: ()=>{restart(); play()}
+    onStart: function(){
+      play()
+    },
+    onRepeat: function(){
+      restart(); 
+      play()
+    }
   });
+
+  Draggable.create("#proxy",{
+    type: "rotation",
+    onPress: function(){
+      rotate.pause()
+      pause()
+    },
+    onDrag: function(){
+      
+    }
+    // ,
+    // onDrag: function(){
+    //   dialRotater.progress(getCombinedProgress(initialProgress))
+    // },
+    // onRelease: function(){
+    //   gsap.set(dragProxy,{rotation: 0})
+    //   dialRotater.play()
+    // }
+  })
 
   
     // onUpdate: function(){
