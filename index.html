@@ -5,29 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mikael Dahlén | Work</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/fonts/fonts.css">
 </head>
 <body>
     <!-- <div class="loading-container">
         <div class="loading-value">0%</div>
     </div> -->
     <div class="content">
-        <div class="info-container" id="about">
-            <h1 class="title">Mikael Dahlén</h1>
-            <p class="info">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam blanditiis aperiam pariatur id doloremque nostrum recusandae impedit similique tempora ducimus voluptatum minima quidem.</p>
+        <div class="dial-container">
+            <div class="dial" id="dial">
+                <div class="project-number">1</div>
+            </div>
+            <div class="indicator"></div>
+            <div class="proxy" id="proxy"></div>
         </div>
         <div class="info-container" id="project">
-            <h1 class="title">Project</h1>
-            <p class="info">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, odio illo? Temporibus nostrum nobis tempora voluptatem iusto adipisci dolor qui?
-            </p>
-        </div>
-            <div class="dial-container">
-                <div class="dial" id="dial">
-                    <div class="project-number">P1</div>
-                </div>
-                <div class="indicator"></div>
-                <div class="proxy" id="proxy"></div>
+            <button class="info-button">
+                <h1 class="title" id="title">Hunterbrook</h1>
+                <i class="arrow"></i>
+            </button>
+            <div class="info-accordion">
+                <p class="info" id="info">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum voluptatum voluptatem quo optio labore earum ea. Minus ipsa voluptatibus beatae porro? Vitae, fuga maiores ut dicta tempora pariatur? Itaque in, ad dolorem voluptates, consectetur illo natus ipsam inventore quibusdam porro recusandae cum unde! Dolor possimus voluptatem maiores nisi magni iure.
+                </p>
             </div>
+            <div class="loc-year" id="loc-year">
+                <span class="loc">London, England</span>
+                <span class="year">2023</span>
+            </div>
+        </div>
+        <div class="info-container" id="about">
+            <button class="info-button">
+                <h2 class="title">Mikael Dahlén</h2>
+                <i class="arrow"></i>
+            </button>
+            <div class="info-accordion">
+                <p class="info">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae est praesentium deleniti, vero deserunt at? Placeat vitae tempore ea fugit libero eos eum quisquam ducimus quasi, eaque voluptatem labore sapiente recusandae corporis magnam ipsum fuga aspernatur sed quae harum? Natus?
+                </p>
+            </div>
+            <div class="loc-year">
+                <span class="loc">Stockholm, Sweden</span>
+                <span class="year">2025</span>
+            </div>
+        </div>
         <div class="video-container">
             <video class="video" id="video" src="/vid/output-5k.mp4" muted preload></video>
         </div>

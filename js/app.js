@@ -12,14 +12,40 @@ function onVideoLoad(){
 
 
 function main(){
-  let dur = vid.duration,
-      storedRot = 0;
+  let 
+    dur = vid.duration,
+    storedRot = 0
+  ;
+
+  function infoTog(){
+    const 
+      infos = document.querySelectorAll('.info-container'),
+      buttons = document.querySelectorAll('.info-button')
+    ;
+
+    infos.forEach((info) => {
+      info.classList.add('closed');
+      console.log('fire')
+    });
+
+    buttons.forEach((button)=>{
+      button.addEventListener('click', function (e) {
+        console.log(this.className, this.parentNode)
+        this.parentNode.classList.toggle('open')
+        this.querySelector('.arrow').classList.toggle('open')
+
+      });
+    });
+
+
+  };
+
 
   function playVid(){
     vid.play()
   };
   
-  function restartVid(){
+  function resetVid(){
     vid.currentTime = 0;
   };
   
@@ -66,10 +92,11 @@ function main(){
     repeat: -1,
     ease: "none",
     onStart: function(){
-      playVid()
+      playVid();
+      infoTog();
     },
     onRepeat: function(){
-      restartVid(); 
+      resetVid(); 
       playVid()
     }
   });
@@ -96,3 +123,21 @@ function main(){
 };
 
 onVideoLoad();
+
+// LOOPING VIDEO SECTION CODE
+// 
+// videojs('vid').ready(function () {
+//   this.on('timeupdate', onVideoTimeupdate );
+// });
+
+// function onVideoTimeupdate() {
+//   var loopStart = parseFloat(document.getElementById('loopStart').value);
+//   var loopEnd = parseFloat(document.getElementById('loopEnd').value);
+//   var loopEnabled = document.getElementById('loopEnabled').checked;
+
+//   if(loopEnabled){
+//     if (this.currentTime() < loopStart || this.currentTime() >= loopEnd ) {
+//       this.currentTime( loopStart );
+//     }
+//   }
+// }
