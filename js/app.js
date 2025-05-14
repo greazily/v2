@@ -1,7 +1,7 @@
 gsap.registerPlugin(Draggable);
 
 
-const vid = document.getElementById('video');
+const vid = document.getElementById('output');
 
 
 function onVideoLoad(){
@@ -17,28 +17,24 @@ function main(){
     storedRot = 0
   ;
 
-  function infoTog(){
-    const 
-      infos = document.querySelectorAll('.info-container'),
-      buttons = document.querySelectorAll('.info-button')
-    ;
+  // function infoTog(){
+  //   const 
+  //     info = document.querySelector('.accordion'),
+  //     buttons = document.querySelectorAll('.toggle'),
+  //     author = document.querySelector('.author')
+  //   ;
 
-    infos.forEach((info) => {
-      info.classList.add('closed');
-      console.log('fire')
-    });
-
-    buttons.forEach((button)=>{
-      button.addEventListener('click', function (e) {
-        console.log(this.className, this.parentNode)
-        this.parentNode.classList.toggle('open')
-        this.querySelector('.arrow').classList.toggle('open')
-
-      });
-    });
+  //   info.classList.add('active');
+  //   buttons.forEach(button =>{
+  //     button.addEventListener('click', function (e) {
+  //       info.classList.toggle('open')
+  //       author.classList.toggle('large')
+  //       author.classList.toggle('small')
+  //     });
+  //   });
 
 
-  };
+  // };
 
 
   function playVid(){

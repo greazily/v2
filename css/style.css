@@ -1,30 +1,34 @@
-:root {
-    --color: black;
-    --color2: white;
-    --dialFont: 10px;
-    --dialDia: clamp(100px, 10.8vh, 110px);
-    --dialRad: calc(var(--dialDia) / 2);
-    --conVPad: 17px;
-    --conHPad: 30px;
-    --infPad: 9px;
-    --infPad2: calc(var(--infPad) * 1.75);
-    --arrowW: 13px;
-    --arrowH: calc(var(--arrowW) * 0.71);
-    --border: solid 1.5px var(--color);
+@font-face {
+    font-family: 'font';
+    src: url(/ClashGrotesk-Regular.woff2);
+}
 
-    font-family: Helvetica, Arial, sans-serif;
+@font-face {
+    font-family: 'font-bold';
+    src: url(/ClashGrotesk-Bold.woff);
+}
+
+:root {
+    --color: hsl(0, 0%, 20%);
+    --color2: hsl(0, 0%, 97%);
+    --dial-d-: 20dvh;
+    --dial-r-: calc(var(--dial-d-) / 2);
+    --dial-f-: calc(var(--dial-r-) / 2);
+    --border: solid calc(var(--dial-d-)* 0.005) var(--color);
+    --num-p-: calc(var(var(--dial-r-) * 1));
+
+
+    font-family: 'font';
     font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-
 }
 
 body {
     color: var(--color);
     background-color: var(--color2);
     margin: 0;
-
 }
 
 button, input[type="submit"], input[type="reset"] {
@@ -37,142 +41,134 @@ button, input[type="submit"], input[type="reset"] {
 	outline: inherit;
 }
 
-p, h1, h2, span {
+p, h1, h2, h3, span {
     margin: 0;
     padding: 0;
-    font-weight: 350;
+    font-weight: 400;
     color: var(--color);
 }
 
-p, h2, span {
-    font-size: 12px;
+.small{
+    font-size: 14px;
+    line-height: 1.15em;
+    hyphens: auto;
+    padding-inline: 3em;
+    text-align: justify;
+    text-align-last: center;
+    text-justify: inter-word;
 }
 
-h1 {
-    font-size: 20px;
-    line-height: 0.9em;
-}
-
-.info-button {
-    align-self: end;
-    padding-bottom: var(--infPad);
-}
-
-.info {
-    line-height: 1.5;
-    padding-block: var(--infPad2) var(--infPad2);
-}
-
-.loc-year {
-    padding-top: var(--infPad);
-}
-
-.info-button, .info{
-    border-bottom: var(--border);
-}
-
-.loading-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.large{
+    font-family: 'font-bold';
+    font-size: 9.5vw;
+    line-height: 0.7em;
+    letter-spacing: -0.001em;
+    height: fit-content;
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: var(--color);
-    color: var(--color2);
-    font-size: 2rem;
-    z-index: 100;
 }
+
+.grid{
+    display: grid;
+}
+
+.contact{
+    grid-template-columns: 1fr 1fr;
+}
+.icon{
+    display: flex;
+    height: 0.65em;
+    width: 0.65em;
+    margin-left: 0.1em;
+    border: var(--border);
+    justify-content: center;
+    align-items: center;
+}
+summary .icon{
+    border-radius: 50%;
+    width: 1em;
+    height: 1em;
+}
+.glyph{
+    height: 75%;
+    width: 75%;
+}
+
+.project{
+    margin-block-start: 7px;
+}
+.about{
+    border-top: var(--border);
+}
+
+details[open]{
+    border-top: unset;
+}
+
+details summary{
+    display: grid;
+    justify-items: center;
+}
+
+details[open] summary{
+    /* justify-self: flex-start; */
+}
+
+details:not([open]).about .icon{
+    display: none;
+}
+
+.uppercase{
+    text-transform: uppercase;
+}
+
+.context{}
 
 .content{
     box-sizing: border-box;
     grid-template-rows: auto 1fr;
-    grid-template-columns: auto auto auto 1fr;
-    grid-template-areas: 
-    "d p a ."
-    "c c c c"
-    ;
-    display: grid;
     width: 100%;
     height: 100dvh;
-    row-gap: var(--conVPad);
-    padding: var(--conVPad) var(--conHPad) 0 var(--conHPad);
-}
-
-#project{
-    grid-area: p;
-}
-
-#about{
-    grid-area: a;
-}
-
-.info-container {
-    display: grid;
-    width: 100%;
-    max-width: 370px;
-    padding-left: 40px;
-    box-sizing: border-box;
-    transition: grid-template-rows 500ms;
-    height: fit-content;
-}
-
-.info-container.closed {
-    grid-template-rows: var(--dialRad) 0fr auto;
-}
-
-.info-container.open {
-    grid-template-rows: var(--dialRad) 1fr auto;
-}
-
-.info-accordion {
-    overflow: hidden
-}
-
-.info-button, .loc-year{
-    display: flex;
-    justify-content: space-between;
-}
-
-.info-button{
-    align-items: flex-end;
 }
 
 .dial-container{
-    grid-area: d;
     position: relative;
-    width: var(--dialDia);
-    height: var(--dialDia);
-    font-size: var(--dialFont);
+    display: flex;
+    width: var(--dial-d-);
+    height: var(--dial-d-);
+    border: var(--border);
+    border-radius: 50%;
+    margin-block: 1em;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
 }
 
 .dial{
-    width: 100%;
-    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 41%;
+    height: 41%;
     border-radius: 50%;
     border: var(--border);
 }
 
-.indicator{
-    position: absolute;
-    top: 25px;
-    left: calc(50% + 1px);
-    width: 2px;
-    height: calc(var(--dialRad) - 25px);
-    background-color: var(--color);
-    transform: rotate(180deg);
+.arrow{
+    height: 85%;
+    width: fit-content;
 }
 
-.project-number{
+.number{
     position: absolute;
     display: flex;
     justify-content: center;
+    line-height: 1em;
     width: 100%;
     height: 100%;
     font-size: inherit;
-    padding-top: 0.5em;
+    font-size: var(--dial-f-);
+    padding-top: 0.1em;
     box-sizing: border-box;
     color: var(--color);
 }
@@ -185,49 +181,13 @@ h1 {
     height: 100%;
 }
 
-.video-container {
-    grid-area: c;
+.video {
     overflow: hidden;
     display: flex;
-    width: calc(100% + var(--conHPad) + var(--conHPad));
+    width: 100%;
     justify-content: center;
     align-items: center;
-    margin-inline: calc(-1 * var(--conHPad));
-    border-top: 0.5px solid lightgrey;
 }
-
-
-.arrow {
-    width: 13px;
-    height: 13px;
-    display: inline-block;
-    position: relative;
-}
-.arrow::before, .arrow::after{
-    content: '';
-    top: calc(0.5 * 13px);
-    position: absolute;
-    width: calc(0.6 * 13px);
-    height: 1.3px;
-    background-color: black;
-    display: inline-block;
-    transition: all 300ms ease;
-}
-.arrow::before {
-    left: 0;
-    transform: rotate(45deg);
-}
-.arrow::after {
-    right: 0;
-    transform: rotate(-45deg);
-}
-.arrow.open::before {
-    transform: rotate(-45deg);
-}
-.arrow.open::after {
-    transform: rotate(45deg);
-}
-
 
 
 @media screen and (orientation:portrait) {

@@ -11,46 +11,38 @@
     <!-- <div class="loading-container">
         <div class="loading-value">0%</div>
     </div> -->
-    <div class="content">
-        <div class="dial-container">
-            <div class="dial" id="dial">
-                <div class="project-number">1</div>
-            </div>
-            <div class="indicator"></div>
-            <div class="proxy" id="proxy"></div>
-        </div>
-        <div class="info-container" id="project">
-            <button class="info-button">
-                <h1 class="title" id="title">Hunterbrook</h1>
-                <i class="arrow"></i>
-            </button>
-            <div class="info-accordion">
-                <p class="info" id="info">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum voluptatum voluptatem quo optio labore earum ea. Minus ipsa voluptatibus beatae porro? Vitae, fuga maiores ut dicta tempora pariatur? Itaque in, ad dolorem voluptates, consectetur illo natus ipsam inventore quibusdam porro recusandae cum unde! Dolor possimus voluptatem maiores nisi magni iure.
+    <div class="content grid">
+        <div class="info grid">
+            <details class="grid pad-inline mrg-block-start project">
+                <summary>
+                    <h1 class="large uppercase">The Dream Factory</h1>
+                    <span class="small uppercase">New York, Usa, 2024</span>
+                    <span class="icon"><img src="img/svg/i.svg" alt="cross" class="glyph"></span>
+                </summary>
+                <p class="small pad-block-s">
+                    On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through.
                 </p>
+            </details>
+            <div class="dial-container">
+                <div class="number">1</div>
+                <div class="dial" id="dial"><img class="arrow" src="img/svg/arrow.svg" alt="arrow"></div>
+                <div class="proxy" id="proxy"></div>
             </div>
-            <div class="loc-year" id="loc-year">
-                <span class="loc">London, England</span>
-                <span class="year">2023</span>
-            </div>
+            <details class="grid pad-inline about">
+                <summary class="small uppercase">Mikael Dahlén<span class="icon"><img src="img/svg/cross.svg" alt="cross" class="glyph"></span></summary>
+                <div class="grid gap">
+                    <p class="small pad-block-s">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae est praesentium deleniti, vero deserunt at? Placeat vitae tempore ea fugit libero eos eum quisquam ducimus quasi, eaque voluptatem labore sapiente by Phone corporis magnam ipsum fuga aspernatur sed quae harum? Natus?
+                    </p>
+                    <div class="grid contact">
+                        <button class="large uppercase detail">Phone<span class="icon"><img src="img/svg/pound.svg" alt="cross" class="glyph"></span></button>
+                        <button class="large uppercase detail">Email<span class="icon"><img src="img/svg/at.svg" alt="cross" class="glyph"></span></button>
+                    </div>
+                </div>
+            </details>
         </div>
-        <div class="info-container" id="about">
-            <button class="info-button">
-                <h2 class="title">Mikael Dahlén</h2>
-                <i class="arrow"></i>
-            </button>
-            <div class="info-accordion">
-                <p class="info">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae est praesentium deleniti, vero deserunt at? Placeat vitae tempore ea fugit libero eos eum quisquam ducimus quasi, eaque voluptatem labore sapiente recusandae corporis magnam ipsum fuga aspernatur sed quae harum? Natus?
-                </p>
-            </div>
-            <div class="loc-year">
-                <span class="loc">Stockholm, Sweden</span>
-                <span class="year">2025</span>
-            </div>
-        </div>
-        <div class="video-container">
-            <video class="video" id="video" src="/vid/output-5k.mp4" muted preload></video>
+        <div class="video">
+            <video id="output" src="/vid/output-5k.webm" muted preload></video>
         </div>
     </div>
 
