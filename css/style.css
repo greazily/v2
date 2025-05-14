@@ -41,95 +41,7 @@ button, input[type="submit"], input[type="reset"] {
 	outline: inherit;
 }
 
-p, h1, h2, h3, span {
-    margin: 0;
-    padding: 0;
-    font-weight: 400;
-    color: var(--color);
-}
 
-.small{
-    font-size: 14px;
-    line-height: 1.15em;
-    hyphens: auto;
-    padding-inline: 3em;
-    text-align: justify;
-    text-align-last: center;
-    text-justify: inter-word;
-}
-
-.large{
-    font-family: 'font-bold';
-    font-size: 9.5vw;
-    line-height: 0.7em;
-    letter-spacing: -0.001em;
-    height: fit-content;
-    display: flex;
-    align-items: center;
-}
-
-.grid{
-    display: grid;
-}
-
-.contact{
-    grid-template-columns: 1fr 1fr;
-}
-.icon{
-    display: flex;
-    height: 0.65em;
-    width: 0.65em;
-    margin-left: 0.1em;
-    border: var(--border);
-    justify-content: center;
-    align-items: center;
-}
-summary .icon{
-    border-radius: 50%;
-    width: 1em;
-    height: 1em;
-}
-.glyph{
-    height: 75%;
-    width: 75%;
-}
-
-.project{
-    margin-block-start: 7px;
-}
-.about{
-    border-top: var(--border);
-}
-
-details[open]{
-    border-top: unset;
-}
-
-details summary{
-    display: grid;
-    justify-items: center;
-}
-
-details[open] summary{
-    /* justify-self: flex-start; */
-}
-
-details:not([open]).about .icon{
-    display: none;
-}
-
-.uppercase{
-    text-transform: uppercase;
-}
-
-.context{}
-
-.content{
-    box-sizing: border-box;
-    grid-template-rows: auto 1fr;
-    width: 100%;
-    height: 100dvh;
-}
 
 .dial-container{
     position: relative;
@@ -187,17 +99,4 @@ details:not([open]).about .icon{
     width: 100%;
     justify-content: center;
     align-items: center;
-}
-
-
-@media screen and (orientation:portrait) {
-    .video{
-        height: 100%;
-    }
-}
-
-@media screen and (orientation:landscape) {
-    .video{
-       width: 100%;
-    }
 }
