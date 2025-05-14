@@ -1,11 +1,11 @@
 @font-face {
-    font-family: 'font';
+    font-family: 'regular';
     src: url(/ClashGrotesk-Regular.woff2);
 }
 
 @font-face {
-    font-family: 'font-bold';
-    src: url(/ClashGrotesk-Bold.woff);
+    font-family: 'bold';
+    src: url(/ClashGrotesk-Bold.woff2);
 }
 
 :root {
@@ -15,20 +15,17 @@
     --dial-r-: calc(var(--dial-d-) / 2);
     --dial-f-: calc(var(--dial-r-) / 2);
     --border: solid calc(var(--dial-d-)* 0.005) var(--color);
-    --num-p-: calc(var(var(--dial-r-) * 1));
+    --space: 5px;
 
-
-    font-family: 'font';
+    font-family: 'regular';
+    font-weight: 400;
     font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-}
 
-body {
     color: var(--color);
     background-color: var(--color2);
-    margin: 0;
 }
 
 button, input[type="submit"], input[type="reset"] {
@@ -41,7 +38,72 @@ button, input[type="submit"], input[type="reset"] {
 	outline: inherit;
 }
 
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
 
+main, section {
+    display: grid;
+    text-align: center;
+    justify-items: center;
+}
+
+main {
+    grid-template-rows: repeat(4, auto) 1fr;
+    height: 100dvh;
+}
+
+h1, h2{
+    text-transform: uppercase;
+}
+
+h1 {
+    font-family: 'bold';
+    font-size: 9.5vw;
+    line-height: .71em;
+    margin-top: var(--space);
+}
+
+h2 {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: 1em;
+    margin-top: var(--space);
+}
+
+div.expander {
+    display: grid;
+    overflow: hidden;
+    grid-template-rows: 0;
+}
+
+div.expander.is-expanded {
+    grid-template-rows: 0;
+}
+
+button.btn {
+    /* width: 100px; */
+}
+
+button.icn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: var(--border);
+    border-radius: 50%;
+    height: 1em;
+    width: 1em;
+    margin-top: calc(var(--space) * 4);
+}
+
+button.icn > img {
+    height: 70%;
+}
+
+button.icn, .dial-container {
+    
+}
 
 .dial-container{
     position: relative;
@@ -50,7 +112,7 @@ button, input[type="submit"], input[type="reset"] {
     height: var(--dial-d-);
     border: var(--border);
     border-radius: 50%;
-    margin-block: 1em;
+    margin-top: calc(var(--space) * 4);
     align-items: center;
     justify-content: center;
     justify-self: center;
@@ -71,7 +133,7 @@ button, input[type="submit"], input[type="reset"] {
     width: fit-content;
 }
 
-.number{
+.num{
     position: absolute;
     display: flex;
     justify-content: center;

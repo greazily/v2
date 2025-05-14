@@ -89,7 +89,7 @@ function main(){
     ease: "none",
     onStart: function(){
       playVid();
-      infoTog();
+      // infoTog();
     },
     onRepeat: function(){
       resetVid(); 
