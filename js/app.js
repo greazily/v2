@@ -5,7 +5,7 @@ gsap.registerPlugin(Draggable);
 
 function onVideoLoad(){
   var video = document.getElementById('output');
-  video.src = 'vid/output-5k.webm';
+  video.src = 'vid/output-5k.mp4';
   video.load();
   video.addEventListener('loadeddata', function() {
     main(video);
