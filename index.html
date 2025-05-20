@@ -4,44 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mikael Dahlén | Work</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <main>
-        <h1>The Dream Factory</h1>
-        <section>
-            <h2>New York, Usa, 2024</h2>
-            <button class="icn"><img src="img/svg/i.svg" alt=""></button>
-            <div class="expander">
-                <p>
-                    On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through.
-                </p>
+        <h1 id="t1">The Dream Factory</h1>
+        <div class="components">
+            <section class="project">
+                <h2>New York, Usa, 2024</h2>
+                <button class="icon">
+                    <img src="/img/svg/i.svg" alt="open information" class="opener">
+                    <img src="/img/svg/cross02.svg" alt="close information" class="closer">
+                </button>
+                <div class="expander">
+                    <p>
+                        On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through.
+                    </p>
+                </div>
+            </section>
+            <div class="dial-container">
+                <div class="number">1</div>
+                <div class="dial" id="dial"><img class="arrow" src="img/svg/arrow.svg" alt="arrow"></div>
+                <div class="proxy" id="proxy"></div>
             </div>
-        </section>
-        <div class="dial-container">
-            <div class="num">1</div>
-            <div class="dial" id="dial"><img class="arrow" src="img/svg/arrow.svg" alt="arrow"></div>
-            <div class="proxy" id="proxy"></div>
-        </div>
-        <section>
-            <button class="txt">
+            <section class="about">
                 <h2>Mikael Dahlén</h2>
-                <button class="icn"><img src="img/svg/i.svg" alt=""></button>
-            </button>
-            <div class="expander">
-                <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae est praesentium deleniti, vero deserunt at? Placeat vitae tempore ea fugit libero eos eum quisquam ducimus quasi, eaque voluptatem labore sapiente corporis magnam ipsum fuga aspernatur sed quae harum? Natus?
-                    <button class="btn">Contact</button>
-                </p>
-            </div>
-        </section>
+                <button class="text">Mikael Dahlén</button>
+                <div class="expander">
+                        <button class="icon"><img src="/img/svg/cross02.svg" alt="close information" class="closer"></button>
+                        <p>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae est praesentium deleniti, vero deserunt at? Placeat vitae tempore ea fugit libero eos eum quisquam ducimus quasi, eaque voluptatem labore sapiente corporis magnam ipsum fuga aspernatur sed quae harum? Natus?&nbsp;
+                            <a class="contact">Contact</a>
+                        </p>
+                </div>
+            </section>
+        </div>
         <div class="video">
-            <video id="output" src="/vid/output-5k.webm" muted preload></video>
+            <video id="output" src="/vid/output-5k.mp4" muted preload></video>
         </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/Draggable.min.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+    <script src="/js/kerning.js"></script>
     <script src="/js/app.js"></script>
 </body>
 </html>

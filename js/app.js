@@ -17,24 +17,26 @@ function main(){
     storedRot = 0
   ;
 
-  // function infoTog(){
-  //   const 
-  //     info = document.querySelector('.accordion'),
-  //     buttons = document.querySelectorAll('.toggle'),
-  //     author = document.querySelector('.author')
-  //   ;
+  function infoTog(){
+    const 
+      sections = document.querySelectorAll('section'),
+      buttons = document.querySelectorAll('button')
+    ;
 
-  //   info.classList.add('active');
-  //   buttons.forEach(button =>{
-  //     button.addEventListener('click', function (e) {
-  //       info.classList.toggle('open')
-  //       author.classList.toggle('large')
-  //       author.classList.toggle('small')
-  //     });
-  //   });
+    buttons.forEach(button =>{
+      button.addEventListener('click', function (e) {
+        console.log(Array.prototype.indexOf.call(buttons, button))
+        let i = Array.prototype.indexOf.call(buttons, button)
+        if(i == 0) {
+          sections[0].classList.toggle('has-expanded')
+        } else {
+          sections[1].classList.toggle('has-expanded')
+        }
+      });
+    });
 
 
-  // };
+  };
 
 
   function playVid(){
@@ -89,7 +91,7 @@ function main(){
     ease: "none",
     onStart: function(){
       playVid();
-      // infoTog();
+      infoTog();
     },
     onRepeat: function(){
       resetVid(); 
