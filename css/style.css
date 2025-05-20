@@ -224,6 +224,7 @@ a.contact {
     width: 100%;
     justify-content: center;
     align-items: center;
+    filter: invert(.9);
 }
 
 
@@ -322,7 +323,6 @@ a.contact {
 
     .video > video {
         width: 100%;
-        filter: invert(.9);
     }
 
 }
