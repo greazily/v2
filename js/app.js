@@ -1,11 +1,13 @@
 gsap.registerPlugin(Draggable);
 
 
-const vid = document.getElementById('output');
 
 
 function onVideoLoad(){
-  vid.addEventListener('loadeddata', function() {
+  var video = document.getElementById('output');
+  video.src = 'vid/output-5k.mp4';
+  video.load();
+  video.addEventListener('loadeddata', function() {
     main();
   }, false);
 };
@@ -121,21 +123,3 @@ function main(){
 };
 
 onVideoLoad();
-
-// LOOPING VIDEO SECTION CODE
-// 
-// videojs('vid').ready(function () {
-//   this.on('timeupdate', onVideoTimeupdate );
-// });
-
-// function onVideoTimeupdate() {
-//   var loopStart = parseFloat(document.getElementById('loopStart').value);
-//   var loopEnd = parseFloat(document.getElementById('loopEnd').value);
-//   var loopEnabled = document.getElementById('loopEnabled').checked;
-
-//   if(loopEnabled){
-//     if (this.currentTime() < loopStart || this.currentTime() >= loopEnd ) {
-//       this.currentTime( loopStart );
-//     }
-//   }
-// }
