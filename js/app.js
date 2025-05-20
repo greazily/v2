@@ -8,12 +8,12 @@ function onVideoLoad(){
   video.src = 'vid/output-5k.mp4';
   video.load();
   video.addEventListener('loadeddata', function() {
-    main();
+    main(video);
   }, false);
 };
 
 
-function main(){
+function main(vid){
   let 
     dur = vid.duration,
     storedRot = 0
