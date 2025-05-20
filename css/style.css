@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'regular';
-    src: url(/ClashGrotesk-Regular.woff2);
+    src: url(ClashGrotesk-Regular.woff2);
 }
 
 @font-face {
     font-family: 'bold';
-    src: url(/ClashGrotesk-Bold.woff2);
+    src: url(ClashGrotesk-Bold.woff2);
 }
 
 :root {
