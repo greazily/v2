@@ -97,3 +97,24 @@ Draggable.create(dragProxy,{
   }
   
 })
+
+function infoTog(){
+  const 
+    sections = document.querySelectorAll('section'),
+    buttons = document.querySelectorAll('button')
+  ;
+
+  buttons.forEach(button =>{
+    button.addEventListener('click', function (e) {
+      console.log(Array.prototype.indexOf.call(buttons, button))
+      let i = Array.prototype.indexOf.call(buttons, button)
+      if(i == 0) {
+        sections[0].classList.toggle('has-expanded')
+      } else {
+        sections[1].classList.toggle('has-expanded')
+      }
+    });
+  });
+
+
+};
