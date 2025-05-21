@@ -11,8 +11,8 @@
 :root {
     --color: hsl(0, 0%, 18%);
     --color2: hsl(0, 0%, 96%);
-    --title: clamp(22px, 9.4vw, 250px);
-    --dial-d-: clamp(144px, 17dvh, 200px);
+    --title: clamp(22px, 9.5vw, 250px);
+    --dial-d-: clamp(130px, 17dvh, 200px);
     --dial-r-: calc(var(--dial-d-) / 2);
     --dial-f-: calc(var(--dial-r-) / 2.2);
     --border: solid calc(var(--dial-d-)* 0.005) var(--color);
@@ -21,7 +21,6 @@
     --break: calc(var(--dial-d-) + var(--para-w-) * 2);
 
     font-family: 'regular';
-    font-weight: 400;
     font-smoothing: antialiased;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -42,6 +41,7 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 body, h1, h2, p {
+    font-weight: 400;
     margin: 0;
     padding: 0;
 }
@@ -57,7 +57,7 @@ main {
     box-sizing: border-box;
     grid-template-rows: repeat(2, auto) 1fr;
     height: 100dvh;
-    padding-top: var(--space);
+    padding-top: calc(var(--space) * 1.25);
 }
 
 h1, h2, button.text {
@@ -75,7 +75,7 @@ section.about h2{
 }
 
 h1 {
-    padding-bottom: var(--space);
+    padding-bottom: calc(var(--space) * .75);
 }
 
 h1, section.has-expanded button.text {
@@ -83,6 +83,8 @@ h1, section.has-expanded button.text {
     text-align: center;
     font-family: 'bold';
     font-size: var(--title);
+    font-kerning: normal;
+
     line-height: .71em;
 }
 
@@ -119,6 +121,7 @@ section.has-expanded button.text {
 }
 
 button.icon {
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -126,16 +129,16 @@ button.icon {
     border-radius: 50%;
     height: 1.2em;
     width: 1.2em;
+    padding-block: calc(var(--space) * .35);
 }
 
 button.icon > img.opener {
-    height: 65%;
-    width: auto;
+    height: 100%;
+    display: inline-block;
 
 }
 button.icon > img.closer {
-    height: 50%;
-    width: auto;
+    height: 60%;
     display: none;
 }
 
@@ -269,7 +272,7 @@ a.contact {
     .dial-container {
         grid-area: d;
         align-self: center;
-        margin-block: calc(var(--space) * 3.5);
+        margin-block: calc(var(--space) * 5);
     }
 
     section {

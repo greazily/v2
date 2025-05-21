@@ -19,7 +19,7 @@ let currentFrame = index => (
 
 let progression = 0.01
 let images = []
-let airpods = {
+let sequence = {
   frame: 0
 };
 
@@ -42,20 +42,21 @@ function getCombinedProgress(progressAtClick) {
 }
 
 
-let imageSequencer = gsap.to(airpods, {
+let imageSequencer = gsap.to(sequence, {
   frame: frameCount - 1,
   snap: "frame",
   ease: "none",
+  paused: true,
   onUpdate: render 
 });
 // use animation onUpdate instead of scrollTrigger's onUpdate
-imageSequencer.pause()
 
 let dialRotater = gsap.to(".dial", {
   duration: frameCount/26,
   rotation: "360_cw",
   repeat: -1,
   ease: "none",
+  paused: true,
   onUpdate: function(){
     imageSequencer.progress(this.progress())
   }
@@ -68,7 +69,7 @@ function getInitialProgress(){
 
 function render() {
   context.clearRect(0, 0, canvas.width, canvas.height);
-  context.drawImage(images[airpods.frame], 0, 0); 
+  context.drawImage(images[sequence.frame], 0, 0); 
 }
 
 Draggable.create(dragProxy,{
@@ -109,13 +110,19 @@ function infoTog(){
 
 function onLoad() {
   imagesToLoad--;
-  this.onload = null;  
-  loadingValue.textContent = Math.round((frameCount - imagesToLoad) / frameCount * 100) + "%";
+  this.onload = null;
+  let percent = Math.round((frameCount - imagesToLoad) / frameCount * 100)
+  loadingValue.textContent = percent + "%";
     
-  if (!imagesToLoad) {
-    render();
+  if (percent == 100) {
     infoTog();
     gsap.set(canvas, { autoAlpha: 1 });
-    gsap.to(".loading-container", { autoAlpha: 0 });    
+    gsap.to(".loading-container", { 
+      autoAlpha: 0,
+      onComplete: function(){
+        render();
+        dialRotater.play();
+      }
+    });    
   }
 }
