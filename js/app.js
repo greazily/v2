@@ -49,7 +49,6 @@ let imageSequencer = gsap.to(sequence, {
   paused: true,
   onUpdate: render 
 });
-// use animation onUpdate instead of scrollTrigger's onUpdate
 
 let dialRotater = gsap.to(".dial", {
   duration: frameCount/26,

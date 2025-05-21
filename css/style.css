@@ -246,7 +246,6 @@ a.contact {
     height: 100%;
     object-fit: cover;
 }
-/* replace with container query */
 
 @media (width >= calc(38ch * 2 + clamp(144px, 17dvh, 200px))) {
 
@@ -278,7 +277,7 @@ a.contact {
     section {
         grid-row: 2;
         box-sizing: border-box;
-        padding: calc(var(--space) * 2) calc(var(--space) * 10);
+        padding: calc(var(--space) * 3) min(calc(var(--space) * 10), 3vw);
     }
 
     div.expander, section {
@@ -342,7 +341,7 @@ a.contact {
     }
 
     .loading-container {
-    font-size: calc(var(--title) * 0.5);
+        font-size: calc(var(--title) * 0.5);
     }
 
 }
