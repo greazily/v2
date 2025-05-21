@@ -11,7 +11,7 @@
 :root {
     --color: hsl(0, 0%, 18%);
     --color2: hsl(0, 0%, 96%);
-    --title: clamp(22px, 9.5vw, 250px);
+    --title: clamp(22px, 9.4vw, 250px);
     --dial-d-: clamp(144px, 17dvh, 200px);
     --dial-r-: calc(var(--dial-d-) / 2);
     --dial-f-: calc(var(--dial-r-) / 2.2);
