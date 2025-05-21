@@ -41,17 +41,6 @@ function getCombinedProgress(progressAtClick) {
 
 }
 
-function onLoad() {
-  imagesToLoad--;
-  this.onload = null;  
-  loadingValue.textContent = Math.round((frameCount - imagesToLoad) / frameCount * 100) + "%";
-    
-  if (!imagesToLoad) {
-    render();
-    gsap.set(canvas, { autoAlpha: 1 });
-    gsap.to(".loading-container", { autoAlpha: 0 });    
-  }
-}
 
 let imageSequencer = gsap.to(airpods, {
   frame: frameCount - 1,
@@ -115,6 +104,18 @@ function infoTog(){
       }
     });
   });
-
-
 };
+
+
+function onLoad() {
+  imagesToLoad--;
+  this.onload = null;  
+  loadingValue.textContent = Math.round((frameCount - imagesToLoad) / frameCount * 100) + "%";
+    
+  if (!imagesToLoad) {
+    render();
+    infoTog();
+    gsap.set(canvas, { autoAlpha: 1 });
+    gsap.to(".loading-container", { autoAlpha: 0 });    
+  }
+}
