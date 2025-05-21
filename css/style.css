@@ -218,15 +218,36 @@ a.contact {
     height: 100%;
 }
 
-.video {
+.loading-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color2);
+    color: var(--color);
+    font-size: 2rem;
+    z-index: 100;
+}
+
+.canvas-container {
     overflow: hidden;
     display: flex;
     width: 100%;
+    height: 100%;
     justify-content: center;
     align-items: center;
     filter: invert(.9);
 }
 
+#canvas {
+    height: 100%;
+    width: auto;
+}
+/* replace with container query */
 
 @media (width >= calc(38ch * 2 + clamp(144px, 17dvh, 200px))) {
 
@@ -321,8 +342,9 @@ a.contact {
         margin: 0;
     }
 
-    .video > video {
+    #canvas {
         width: 100%;
-    }
+        height: auto;
+    }    
 
 }
