@@ -229,7 +229,8 @@ a.contact {
     justify-content: center;
     background: var(--color2);
     color: var(--color);
-    font-size: 2rem;
+    font-family: 'bold';
+    font-size: var(--title);
     z-index: 100;
 }
 
@@ -346,5 +347,9 @@ a.contact {
         width: 100%;
         height: auto;
     }    
+
+    .loading-container {
+    font-size: calc(var(--title) * 0.5);
+    }
 
 }

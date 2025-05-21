@@ -14,7 +14,7 @@ canvas.height = 1024;
 
 let frameCount = 966;
 let currentFrame = index => (
-  `/img/seq/${(index + 1).toString().padStart(4, '0')}.webp`
+  `img/seq/${(index + 1).toString().padStart(4, '0')}.webp`
 );
 
 let progression = 0.01
@@ -56,14 +56,14 @@ function onLoad() {
 let imageSequencer = gsap.to(airpods, {
   frame: frameCount - 1,
   snap: "frame",
-  duration: frameCount/30,
   ease: "none",
-  onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate
+  onUpdate: render 
 });
+// use animation onUpdate instead of scrollTrigger's onUpdate
 imageSequencer.pause()
 
 let dialRotater = gsap.to(".dial", {
-  duration: frameCount/30,
+  duration: frameCount/26,
   rotation: "360_cw",
   repeat: -1,
   ease: "none",
