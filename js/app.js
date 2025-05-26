@@ -9,12 +9,12 @@ let dragProxy = document.querySelector(".proxy");
 let initialProgress = 0;
 
 
-canvas.width = 1024;
-canvas.height = 1024;
+canvas.width = 1440;
+canvas.height = 1080;
 
-let frameCount = 966;
+let frameCount = 3382;
 let currentFrame = index => (
-  `img/seq/${(index + 1).toString().padStart(4, '0')}.webp`
+  `img/frm/${(index + 1).toString().padStart(5, '0')}.webp`
 );
 
 let progression = 0.01
