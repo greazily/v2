@@ -8,10 +8,16 @@
     src: url(font/ClashGrotesk-Bold.woff2);
 }
 
+@font-face {
+    font-family: 'medium';
+    src: url(font/ClashGrotesk-Medium.woff2)
+}
+
 :root {
     --color: hsl(0, 0%, 18%);
     --color2: hsl(0, 0%, 96%);
     --title: clamp(22px, 9.5vw, 250px);
+    /* --title: clamp(22px, 9.5vw, 50px); */
     --dial-d-: clamp(130px, 17dvh, 200px);
     --dial-r-: calc(var(--dial-d-) / 2);
     --dial-f-: calc(var(--dial-r-) / 2.2);
@@ -108,7 +114,6 @@ section.has-expanded div.expander {
     grid-auto-rows: auto 1fr;
 }
 
-
 button.text {
     width: 100%;
     border-top: var(--border);
@@ -201,9 +206,15 @@ a.contact {
     height: 100%;
     font-size: inherit;
     font-size: var(--dial-f-);
+    font-family: 'medium';
     padding-top: 0.2em;
     box-sizing: border-box;
     color: var(--color);
+    opacity: 0.06;
+    transition: opacity 200ms ease-out;
+}
+.number.active {
+    opacity: 1;
 }
 
 .proxy {
@@ -241,7 +252,7 @@ a.contact {
 
 #canvas {
     display: block;
-    width: 100%;
+    width: 100%; 
     height: 100%;
     object-fit: cover;
 }
@@ -249,7 +260,7 @@ a.contact {
 @media (width >= calc(38ch * 2 + clamp(144px, 17dvh, 200px))) {
 
     :root {
-        --dial-d-: clamp(95px, 11.5dvh, 140px);
+        --dial-d-: clamp(95px, 10dvh, 140px);
         --para-w-: 60ch;
         font-size: 13px;
     }
