@@ -206,7 +206,6 @@ a.contact {
     height: 100%;
     font-size: inherit;
     font-size: var(--dial-f-);
-    font-family: 'medium';
     padding-top: 0.2em;
     box-sizing: border-box;
     color: var(--color);
