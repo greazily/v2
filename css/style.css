@@ -71,6 +71,7 @@ h1, h2, button.text {
 }
 
 h2 {
+    font-family: 'bold';
     font-size: inherit;
     font-weight: inherit;
     line-height: .8em;
@@ -78,6 +79,11 @@ h2 {
 
 section.about h2{
     display: none;
+}
+
+section > span {
+    display: flex;
+    gap: 1rem;
 }
 
 h1 {
@@ -209,7 +215,7 @@ a.contact {
     padding-top: 0.2em;
     box-sizing: border-box;
     color: var(--color);
-    opacity: 0.06;
+    opacity: 0.1;
     transition: opacity 200ms ease-out;
 }
 .number.active {
