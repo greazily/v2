@@ -114,10 +114,10 @@ function infoSet(project) {
     active.classList.add("active");
   }
 
-  // function setTitle(index) {
-  //   let title = document.querySelector("h1");
-  //   title.textContent = titles[index];
-  // }
+  function setTitle(index) {
+    let title = document.querySelector(".about > h2");
+    title.textContent = titles[index];
+  }
   numberOpacity(project);
   setTitle(project);
 }
