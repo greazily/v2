@@ -16,8 +16,7 @@
 :root {
     --color: hsl(0, 0%, 18%);
     --color2: hsl(0, 0%, 96%);
-    --title: clamp(22px, 9.5vw, 250px);
-    /* --title: clamp(22px, 9.5vw, 50px); */
+    --title: clamp(22px, 9.5vw, 160px);
     --dial-d-: clamp(130px, 17dvh, 200px);
     --dial-r-: calc(var(--dial-d-) / 2);
     --dial-f-: calc(var(--dial-r-) / 2.2);
@@ -265,7 +264,7 @@ a.contact {
 @media (width >= calc(38ch * 2 + clamp(144px, 17dvh, 200px))) {
 
     :root {
-        --dial-d-: clamp(95px, 10dvh, 140px);
+        --dial-d-: clamp(95px, 10dvh, 110px);
         --para-w-: 60ch;
         font-size: 13px;
     }
