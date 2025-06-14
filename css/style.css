@@ -171,25 +171,24 @@ a.contact {
     cursor: pointer;
 }
 
+.drag-container {
+    position: relative;
+    height: 80px;
+    background-color: antiquewhite;
+}
+
 .dial-container {
     position: relative;
-    display: flex;
     width: var(--dial-d-);
-    height: var(--dial-d-);
+    height: 40px;
     border: var(--border);
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
 }
 
 .dial {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 41%;
-    height: 41%;
-    border-radius: 50%;
-    border: var(--border);
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: red;
 }
 
 .arrow {
@@ -217,11 +216,10 @@ a.contact {
 }
 
 .proxy {
-    position: absolute;
-    top: 0;
-    left: 0;
+
     width: 100%;
     height: 100%;
+    background-color: hsla(30, 50%, 50%, 0.5);
 }
 
 .loading-container {
@@ -276,11 +274,9 @@ a.contact {
         '. d .'
         ;
     }
-
-    .dial-container {
+    .drag-container{
         grid-area: d;
         align-self: center;
-        margin-block: calc(var(--space) * 5);
     }
 
     section {
