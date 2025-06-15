@@ -34,21 +34,25 @@ for (let i = 0; i < frameCount; i++) {
 
 function render(i) {
   context.clearRect(0, 0, canvas.width, canvas.height);
-  context.drawImage(images[i], 0, 0);
+  context.drawImage(images[sequence.frame], 0, 0);
 }
 
-
-
+let imageSequencer = gsap.to(sequence, {
+  frame: frameCount,
+  snap: "frame",
+  ease: "none",
+  paused: true,
+  onUpdate: render 
+});
 
 indicator.t1 = gsap.timeline({
   paused: true,
+  repeat: -1, 
   onStart() {
     console.log('start')
   },
   onUpdate() {
-    let progress = this.progress() * frameCount;
-    let frame = Math.round(progress);
-    render(frame);
+    imageSequencer.progress(this.progress)
   },
   onComplete() {
     console.log('complete', images);
