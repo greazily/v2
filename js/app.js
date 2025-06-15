@@ -132,7 +132,7 @@ function getCombinedProgress(progressAtClick) {
 
 
 let imageSequencer = gsap.to(sequence, {
-  frame: frameCount - 1,
+  frame: frameCount,
   snap: "frame",
   ease: "none",
   paused: true,
