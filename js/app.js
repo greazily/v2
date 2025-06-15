@@ -17,7 +17,6 @@ let currentFrame = index => (
   `img/frm/${(index).toString().padStart(5, "0")}.webp`
 );
 
-let frame = 0;
 let progression = 0.01
 let images = []
 let sequence = {
@@ -33,18 +32,10 @@ for (let i = 0; i < frameCount; i++) {
   images.push(img);
 };
 
-function render() {
+function render(i) {
   context.clearRect(0, 0, canvas.width, canvas.height);
-  context.drawImage(images[sequence], 0, 0); 
+  context.drawImage(images[i], 0, 0); 
 }
-
-let imageSequencer = gsap.to(sequence, {
-  frame: frameCount,
-  snap: "frame",
-  ease: "none",
-  paused: true,
-  onUpdate: render 
-});
 
 
 
@@ -52,12 +43,16 @@ let imageSequencer = gsap.to(sequence, {
 indicator.t1 = gsap.timeline({
   paused: true,
   onStart() {
-
+    render(0);
   },
   onUpdate() {
-    render();
+    let progress = this.progress() * frameCount;
+    let frame = Math.round(progress);
+    render(frame);
   },
   onComplete() {
+    render(0);
+    this.restart()
     console.log('complete');
   }
 })
