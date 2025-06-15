@@ -52,7 +52,7 @@ indicator.t1 = gsap.timeline({
     console.log('start')
   },
   onUpdate() {
-    imageSequencer.progress(this.progress)
+    imageSequencer.progress(this.progress())
   },
   onComplete() {
     console.log('complete', images);
