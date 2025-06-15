@@ -32,6 +32,9 @@ for (let i = 0; i < frameCount; i++) {
   images.push(img);
 };
 
+
+
+
 indicator.t1 = gsap.timeline({
   onStart() {
     console.log('start');
@@ -74,6 +77,9 @@ Draggable.create(proxy, {
 });
 
 
+
+
+
 function onLoad() {
   imagesToLoad--;
   this.onload = null;
@@ -83,7 +89,6 @@ function onLoad() {
   }
   
   if (percent == 100) {
-    infoTog();
     gsap.set(canvas, { autoAlpha: 1 });
     gsap.to(".loading-container", { 
       autoAlpha: 0,
