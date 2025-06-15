@@ -35,8 +35,16 @@ for (let i = 0; i < frameCount; i++) {
 
 function render() {
   context.clearRect(0, 0, canvas.width, canvas.height);
-  context.drawImage(images[frame], 0, 0); 
+  context.drawImage(images[sequence], 0, 0); 
 }
+
+let imageSequencer = gsap.to(sequence, {
+  frame: frameCount,
+  snap: "frame",
+  ease: "none",
+  paused: true,
+  onUpdate: render 
+});
 
 
 
