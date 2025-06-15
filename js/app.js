@@ -34,7 +34,7 @@ for (let i = 0; i < frameCount; i++) {
 
 function render(i) {
   context.clearRect(0, 0, canvas.width, canvas.height);
-  context.drawImage(images[i], 0, 0); 
+  context.drawImage(images[i], 0, 0);
 }
 
 
@@ -43,7 +43,7 @@ function render(i) {
 indicator.t1 = gsap.timeline({
   paused: true,
   onStart() {
-    render(0);
+    console.log('start')
   },
   onUpdate() {
     let progress = this.progress() * frameCount;
@@ -51,9 +51,7 @@ indicator.t1 = gsap.timeline({
     render(frame);
   },
   onComplete() {
-    render(0);
-    this.restart()
-    console.log('complete');
+    console.log('complete', images);
   }
 })
 .to("#indicator", {
