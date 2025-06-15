@@ -1,8 +1,8 @@
 gsap.registerPlugin(Draggable);
 
 const indicator = document.getElementById("indicator");
-const header = document.getElementById("header");
-let headerHeight = header.getBoundingClientRect().height;
+const work = document.getElementById("work");
+let workHeight = work.getBoundingClientRect().height;
 
 let loadingValue = document.querySelector(".loading-value");
 let canvas = document.querySelector("#canvas");
@@ -60,7 +60,7 @@ indicator.t1 = gsap.timeline({
 })
 .to("#indicator", {
   duration: frameCount/30,
-  y: headerHeight,
+  y: workHeight,
   ease: "none"
 });
 
@@ -73,23 +73,19 @@ Draggable.create(proxy, {
     indicator.t1.pause();
   },
   onDrag: function() {
-    indicator.t1.progress(this.y/headerHeight);
+    indicator.t1.progress(this.y/workHeight);
   },
   onDragEnd: function() {
     indicator.t1.play();
   },
   onPress: function() {
     gsap.set(this.target, {
-      y: indicator.t1.progress() * headerHeight
+      y: indicator.t1.progress() * workHeight
     });
     this.update();
   },
-  bounds: { minY: 0, maxY: headerHeight },
+  bounds: { minY: 0, maxY: workHeight },
 });
-
-
-
-
 
 function onLoad() {
   imagesToLoad--;

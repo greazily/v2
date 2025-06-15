@@ -39,19 +39,22 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 body, h1, h2, h3, p {
+    font-size: 11px;
     font-weight: 400;
     margin: 0;
     padding: 0;
 }
 
-h2, h3 {
-    font-size: 12px;
+h1, h2, h3, button{
     text-transform: uppercase;
-    vertical-align: middle;
 }
 h2:hover, h3:hover { cursor: default;}
 
-.project {
+h1 {
+    font-family: 'bold';
+}
+
+.project, .space {
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -59,20 +62,32 @@ h2:hover, h3:hover { cursor: default;}
 }
 
 .work {
+    position: relative;
     display: grid;
+    width: 100%;
 }
 
 header {
-    position: fixed;
-    width: fit-content;
+    width: 500px;
+    position: absolute;
+    padding: 2em;
+    box-sizing: border-box;
     background: var(--color2);
 }
 
 .loading-container {
-   position: absolute;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background: var(--color2);
+    width: 100%;
+    height: 100%;
 }
 
 main {
+    position: relative;
     width: 100vw;
     height: 100vh;
 }
@@ -83,19 +98,17 @@ main {
 }
 
 #indicator {
+    box-sizing: border-box;
+    padding-block: 2px;
     position: absolute;
     top: 0;
-    height: 3px;
+    height: 5px;
     width: 100%;
-    background: red;
 }
 
-.proxy{
-    position: absolute;
-    top: 0;
-
-    height: 100%;
-    width: 100%;
-    background: green;
-    opacity: 0.2;
+#indicator::before {
+    content: '';
+    display: block;
+    height: 1px;
+    background: red;
 }
