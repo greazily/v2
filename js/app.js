@@ -17,6 +17,7 @@ let currentFrame = index => (
   `img/frm/${(index).toString().padStart(5, "0")}.webp`
 );
 
+let frame = 0;
 let progression = 0.01
 let images = []
 let sequence = {
@@ -34,27 +35,26 @@ for (let i = 0; i < frameCount; i++) {
 
 function render() {
   context.clearRect(0, 0, canvas.width, canvas.height);
-  context.drawImage(images[sequence.frame], 0, 0); 
+  context.drawImage(images[frame], 0, 0); 
 }
 
 
 
 
 indicator.t1 = gsap.timeline({
+  paused: true,
   onStart() {
-    console.log('start');
+
   },
   onUpdate() {
-    // console.log(this.progress())
     render();
   },
   onComplete() {
-    this.restart()
     console.log('complete');
   }
 })
 .to("#indicator", {
-  duration: 100,
+  duration: frameCount/30,
   y: headerHeight,
   ease: "none"
 });
@@ -99,7 +99,6 @@ function onLoad() {
     gsap.to(".loading-container", { 
       autoAlpha: 0,
       onComplete: function(){
-        render();
         indicator.t1.play();
       }
     });    
