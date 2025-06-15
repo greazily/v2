@@ -32,6 +32,11 @@ for (let i = 0; i < frameCount; i++) {
   images.push(img);
 };
 
+function render() {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.drawImage(images[sequence.frame], 0, 0); 
+}
+
 
 
 
@@ -41,6 +46,7 @@ indicator.t1 = gsap.timeline({
   },
   onUpdate() {
     // console.log(this.progress())
+    render();
   },
   onComplete() {
     this.restart()
