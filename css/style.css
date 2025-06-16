@@ -51,7 +51,7 @@ body, h1, h2, p {
     padding: 0;
 }
 
-main, section, div.expander, section.has-expanded button.text, div.components {
+main, section, div.expander, div.components {
     width: 100%;
     display: grid;
     text-align: center;
@@ -76,20 +76,21 @@ h2 {
     line-height: .8em;
 }
 
-section.about h2{
-    display: none;
-}
-
-section > span {
+section > span.title {
     display: flex;
     gap: 1rem;
+    align-items: center;
+}
+
+section.about > span.title {
+    display: none;
 }
 
 h1 {
     padding-bottom: calc(var(--space) * .75);
 }
 
-h1, section.has-expanded button.text {
+h1{
     width: 100%;
     text-align: center;
     font-family: 'bold';
@@ -111,56 +112,34 @@ p {
 
 div.expander {
     display: grid;
+    padding-block: 0;
+    grid-template-rows: 0fr;
+    transition: all 300ms;
+}
+
+div.expander > p {
     overflow: hidden;
-    grid-auto-rows: 0;
 }
 
 section.has-expanded div.expander {
-    grid-auto-rows: auto 1fr;
+    padding-block: 1em;
+    grid-template-rows: 1fr;
 }
 
 button.text {
-    width: 100%;
-    border-top: var(--border);
-    padding-block: var(--space);
-    margin-top: calc(var(--space) * 5);
+    font-size: 12px;
+    width: fit-content;
+    border: var(--border);
+    padding: calc(var(--space) * 0.5) calc(var(--space) * 2);
 }
 
 section.has-expanded button.text {
-    padding-block: calc(var(--space) * 5) 0;
+    background: var(--color);
+    color: var(--color2);
 }
 
-button.icon {
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: var(--border);
-    border-radius: 50%;
-    height: 1.2em;
-    width: 1.2em;
-    padding-block: calc(var(--space) * .35);
-}
-
-button.icon > img.opener {
-    height: 100%;
-    display: inline-block;
-
-}
-button.icon > img.closer {
-    height: 60%;
-    display: none;
-}
-
-section.has-expanded button.icon > img.opener {
-    display: none;
-}
-section.has-expanded button.icon > img.closer {
-    display: inline-block;
-}
-
-p, button, .dial-container {
-    margin-top: calc(var(--space) * 4);
+.dial-container {
+    margin-block: calc(var(--space) * 4);
 }
 
 a.contact {
@@ -282,6 +261,10 @@ a.contact {
         ;
     }
 
+    section.about > span.title {
+        display: flex;
+    }
+
     .dial-container {
         grid-area: d;
         align-self: center;
@@ -318,27 +301,27 @@ a.contact {
         margin: var(--space) 0 0 0;
     }
 
-    section.project p {
+    section.about p {
         text-align-last: right;
     }
 
-    section.about p{
+    section.project p{
         text-align-last: left;
     }
 
-    section.project {
+    section.about {
         grid-area: p;
         justify-items: end;
         justify-self: end;
     }
 
-    section.about {
+    section.project {
         grid-area: a;
         justify-items: start;
         justify-self: start;
     }
 
-    section.about h2 {
+    section.project h2 {
         display: block;
     }
 

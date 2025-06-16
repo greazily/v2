@@ -115,7 +115,7 @@ function infoSet(project) {
   }
 
   function setTitle(index) {
-    let title = document.querySelector(".about > span h2");
+    let title = document.querySelector(".project > span h2");
     title.textContent = titles[index];
   }
   numberOpacity(project);
@@ -182,6 +182,7 @@ function infoTog(){
     sections = document.querySelectorAll("section"),
     buttons = document.querySelectorAll("button")
   ;
+  console.log(buttons);
 
   buttons.forEach(button =>{
     button.addEventListener("click", function (e) {
@@ -206,7 +207,6 @@ function onLoad() {
   }
   
   if (percent == 100) {
-    infoTog();
     gsap.set(canvas, { autoAlpha: 1 });
     gsap.to(".loading-container", { 
       autoAlpha: 0,
@@ -217,5 +217,5 @@ function onLoad() {
     });    
   }
 }
-
+infoTog();
 dialNumbering();
