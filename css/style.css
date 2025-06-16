@@ -48,6 +48,11 @@ body, h1, h2, h3, p {
 h1, h2, h3, button{
     text-transform: uppercase;
 }
+
+h2, h3 {
+    vertical-align: middle;
+    line-height: 0;
+}
 h2:hover, h3:hover { cursor: default;}
 
 h1 {
@@ -55,9 +60,11 @@ h1 {
 }
 
 .project, .space {
+    height: 15px;
     display: flex;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
     gap: 1em;
 }
 
@@ -97,11 +104,15 @@ main {
     height: 100%;
 }
 
+#canvas {
+    object-fit: cover;
+}
+
 #indicator {
     box-sizing: border-box;
     padding-block: 2px;
     position: absolute;
-    top: 0;
+    top: -2px;
     height: 5px;
     width: 100%;
 }

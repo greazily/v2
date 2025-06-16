@@ -32,7 +32,7 @@ for (let i = 0; i < frameCount; i++) {
   images.push(img);
 };
 
-function render(i) {
+function render() {
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.drawImage(images[sequence.frame], 0, 0);
 }
@@ -52,7 +52,7 @@ indicator.t1 = gsap.timeline({
     console.log('start')
   },
   onUpdate() {
-    imageSequencer.progress(this.progress())
+    imageSequencer.progress(this.progress());
   },
   onComplete() {
     console.log('complete', images);
@@ -73,10 +73,19 @@ Draggable.create(proxy, {
     indicator.t1.pause();
   },
   onDrag: function() {
-    indicator.t1.progress(this.y/workHeight);
+    //temporary fix that works but sends an error
+    if(this.y/workHeight > 0.999) {
+      indicator.t1.progress(0.999)
+    } else if (this.y/workHeight < 0.001){
+      indicator.t1.progress(0.01)
+    } else {
+      indicator.t1.progress(this.y/workHeight);
+    }
+    console.log(this.y/workHeight);
   },
   onDragEnd: function() {
-    indicator.t1.play();
+      indicator.t1.play();
+
   },
   onPress: function() {
     gsap.set(this.target, {
