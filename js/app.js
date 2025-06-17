@@ -81,7 +81,7 @@ Draggable.create(proxy, {
     } else {
       indicator.t1.progress(this.y/workHeight);
     }
-    console.log(this.y/workHeight);
+    // console.log(this.y/workHeight);
   },
   onDragEnd: function() {
       indicator.t1.play();

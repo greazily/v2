@@ -13,6 +13,11 @@
     src: url(font/ClashGrotesk-Medium.woff2)
 }
 
+@font-face {
+    font-family: 'title';
+    src: url(font/SpecialGothicExpandedOne-Regular.ttf)
+}
+
 :root {
     --color: hsl(0, 0%, 13%);
     --color2: hsl(0, 0%, 96%);
@@ -38,14 +43,14 @@ button, input[type="submit"], input[type="reset"] {
 	outline: inherit;
 }
 
-body, h1, h2, h3, p {
-    font-size: 11px;
+body, h2, h3, p {
+    font-size: 12px;
     font-weight: 400;
     margin: 0;
     padding: 0;
 }
 
-h1, h2, h3, button{
+h2, h3, button{
     text-transform: uppercase;
 }
 
@@ -53,36 +58,66 @@ h2, h3 {
     vertical-align: middle;
     line-height: 0;
 }
+
 h2:hover, h3:hover { cursor: default;}
 
-h1 {
-    font-family: 'bold';
+.title {
+    width: 100%;
+}
+
+main {
+    display: grid;
+    box-sizing: border-box;
+    justify-items: center;
+    height: 100vh;
+    width: 100vw;
+    grid-template-rows: auto 1fr;
+}
+
+header {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    gap: 1em;
+    max-width: 470px;
+    padding-inline: 20px;
+    box-sizing: border-box;
+    background: var(--color2);
+}
+
+.work {
+    box-sizing: border-box;
+    position: relative;
+    display: grid;
+    width: 100%;
+    background: var(--color2);
+    color: var(--color2);
+    overflow: hidden;
 }
 
 .project, .space {
-    height: 15px;
+    box-sizing: border-box;
+    height: 1em;
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: center;
     gap: 1em;
+    mix-blend-mode: difference;
 }
 
-.work {
-    position: relative;
-    display: grid;
-    width: 100%;
-}
-
-header {
-    width: 500px;
-    position: absolute;
-    padding: 2em;
+.buttons {
     box-sizing: border-box;
-    background: var(--color2);
+    display: flex;
+    gap: 1em;
+}
+
+button:hover {
+    text-decoration: underline;
 }
 
 .loading-container {
+    box-sizing: border-box;
     z-index: 10000;
     display: flex;
     justify-content: center;
@@ -93,13 +128,9 @@ header {
     height: 100%;
 }
 
-main {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-}
-
 .canvas-container, #canvas {
+    display: block;
+    box-sizing: border-box;
     width: 100%;
     height: 100%;
 }
@@ -112,14 +143,10 @@ main {
     box-sizing: border-box;
     padding-block: 2px;
     position: absolute;
-    top: -2px;
-    height: 5px;
-    width: 100%;
-}
+    top: -0.5em;
+    height: 1em;
+    width: 50%;
+    background: var(--color2);
+    mix-blend-mode: difference;
 
-#indicator::before {
-    content: '';
-    display: block;
-    height: 1px;
-    background: red;
 }
