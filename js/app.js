@@ -32,6 +32,73 @@ for (let i = 0; i < frameCount; i++) {
   images.push(img);
 };
 
+function progressChecker(progress) {
+  if (progress >= 0 / frameCount && progress < videoLenghts[1] / frameCount){
+    projectChanger(0);
+  }
+  else if (progress >= videoLenghts[1] / frameCount && progress < videoLenghts[2] / frameCount){
+    projectChanger(1);
+  } 
+  else if (progress >= videoLenghts[2] / frameCount && progress < videoLenghts[3] / frameCount){
+    projectChanger(2);
+  } 
+  else if (progress >= videoLenghts[3] / frameCount && progress < videoLenghts[4] / frameCount){
+    projectChanger(3);
+  } 
+  else if (progress >= videoLenghts[4] / frameCount && progress < videoLenghts[5] / frameCount){
+    projectChanger(4);
+  } 
+  else if (progress >= videoLenghts[5] / frameCount && progress < frameCount){
+    projectChanger(5);
+  } 
+};
+executed = [false, false, false, false, false, false];
+function projectChanger(number) {
+  if(number == 0 && !executed[0]){
+    resetArr()
+    executed[0] = true;
+    infoSet(number);
+  }
+  else if (number == 1 && !executed[1]){
+    resetArr()
+    executed[1] = true;
+    infoSet(number);
+  }
+  else if (number == 2 && !executed[2]){
+    resetArr()
+    executed[2] = true;
+    infoSet(number);
+  }
+  else if (number == 3 && !executed[3]){
+    resetArr()
+    executed[3] = true;
+    infoSet(number);
+  }
+  else if (number == 4 && !executed[4]){
+    resetArr()
+    executed[4] = true;
+    infoSet(number);
+  }
+  else if (number == 5 && !executed[5]){
+    resetArr()
+    executed[5] = true;
+    infoSet(number);
+  }
+};
+
+function resetArr() {
+  for (let i = 0; i < executed.length; i++){executed[i] = false;}
+};
+
+function infoSet(index) {
+
+  let inactive = document.querySelectorAll(".project");
+  let active = document.getElementById("n" + index);
+
+  inactive.forEach((inactivate) => inactivate.classList.remove("active"));
+  active.classList.add("active");
+}
+
 function render() {
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.drawImage(images[sequence.frame], 0, 0);
@@ -53,6 +120,7 @@ indicator.t1 = gsap.timeline({
   },
   onUpdate() {
     imageSequencer.progress(this.progress());
+    progressChecker(this.progress());
   },
   onComplete() {
     console.log('complete', images);
