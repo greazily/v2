@@ -4,19 +4,16 @@
 }
 
 @font-face {
-    font-family: 'bold';
-    src: url(font/ClashGrotesk-Bold.woff2);
+    font-family: 'semi';
+    src: url(font/ClashGrotesk-Semibold.woff2);
 }
 
 @font-face {
-    font-family: 'medium';
-    src: url(font/ClashGrotesk-Medium.woff2)
-}
-
-@font-face {
-    font-family: 'title';
-    src: url(font/SpecialGothicExpandedOne-Regular.ttf)
-}
+    font-family: 'variable';
+    src: url('font/ClashGrotesk-Variable.woff2') format("woff2 supports variations"),
+         url('font/ClashGrotesk-Variable.woff2') format("woff2-variations");
+    font-weight: 100 1000;
+  }
 
 :root {
     --color: hsl(0, 0%, 13%);
@@ -111,13 +108,18 @@ header {
 }
 
 .buttons {
+    font-family: 'variable';
     box-sizing: border-box;
     display: flex;
     gap: 1em;
+    /* font-variation-settings: "wght" 400; */
+    /* transition: font-variation-settings 400ms ease-in-out; */
 }
 
 button:hover {
-    text-decoration: underline;
+    animation: test 400ms forwards ease-out;
+    /* font-variation-settings: "wght" 600; */
+
 }
 
 .loading-container {
@@ -174,4 +176,9 @@ button:hover {
     .work {
         margin-bottom: 0;
     }
+}
+
+@keyframes test {
+    0%{font-variation-settings: "wght" 400;}
+    100%{font-variation-settings: "wght" 600;}
 }
